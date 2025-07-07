@@ -1,6 +1,65 @@
-# Speech Signal Modulation and Demodulation Project
+# 📡 Speech Signal Modulation and Demodulation Project
 
-## 📡 Overview
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Signal Processing](https://img.shields.io/badge/Signal-Processing-red.svg)
+![Audio](https://img.shields.io/badge/Audio-Processing-purple.svg)
+
+**🎵 Advanced Telecommunication System Implementation 🎵**
+
+*A complete Python-based communication system demonstrating amplitude modulation, quadrature components, and signal recovery techniques*
+
+</div>
+
+---
+
+## 🌟 Project Highlights
+
+🚀 **Real-world Application**: Simulates actual telecommunication systems  
+🎛️ **Multiple Modulation**: Implements AM with quadrature components  
+📊 **Signal Analysis**: Complete visualization and frequency domain analysis  
+🔄 **Robust Recovery**: Tests demodulation under various carrier conditions  
+📱 **Easy to Use**: Interactive Jupyter notebook with step-by-step execution  
+
+---
+
+## � Table of Contents
+- [🌟 Project Highlights](#-project-highlights)
+- [📡 Overview](#-overview)
+- [🔧 System Architecture](#-system-architecture)
+- [📐 Mathematical Model](#-mathematical-model)
+- [⚙️ Technical Specifications](#️-technical-specifications)
+- [🚀 Quick Start](#-quick-start)
+- [📊 Input & Output Files](#-input--output-files)
+- [🛠️ Dependencies & Tools](#️-dependencies--tools)
+
+---
+
+## 🎬 Quick Demo
+
+### Input → Processing → Output
+```
+🎤 Speech Files (ziad.wav, esoo.wav, mohey.wav)
+    ↓ [Resample to 250kHz]
+📡 Modulation [s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)]
+    ↓ [Transmission Simulation]
+🔍 Demodulation [Standard + Phase/Frequency Shifted]
+    ↓ [Low-Pass Filtering]
+🎵 Recovered Audio Files (18 output variations)
+```
+
+### Results You'll Get:
+- **📈 Signal Plots**: Time and frequency domain visualizations
+- **🎵 Audio Files**: 18 processed audio outputs showing different recovery methods
+- **📊 Analysis**: Complete comparison of demodulation techniques
+- **⚡ Performance**: Real-time processing and quality assessment
+
+---
+
+## �📡 Overview
 This project demonstrates **speech signal modulation and demodulation techniques** using Python. It implements a complete communication system that processes three audio files, modulates them using different carrier frequencies, transmits the combined signal, and then demodulates to recover the original signals.
 
 ### 🎯 Key Features
@@ -20,6 +79,20 @@ This project demonstrates **speech signal modulation and demodulation techniques
 
 ## 🔧 System Architecture
 ![Block Diagram](images/Block%20diagram.png)
+
+**System Components:**
+- **🎤 Input Stage**: Three speech signals ready for modulation
+- **📡 Modulation Stage**: Signals multiplied with carrier waves
+- **➕ Combiner**: All modulated signals summed to create s(t)
+- **📶 Transmission**: Combined signal represents transmitted data
+- **🔍 Demodulation Stage**: Signal recovery using coherent detection
+- **🔽 Low-Pass Filters (L.P.F)**: Remove high-frequency components
+- **🎵 Output Stage**: Recovered speech signals
+
+### 🎛️ Demodulation Variations
+- **Standard**: Perfect carrier synchronization
+- **Phase-shifted**: Carriers with 10°, 30°, 90° phase offsets
+- **Frequency-shifted**: Carriers with 2 Hz, 10 Hz frequency offsets
 
 ## 📐 Mathematical Model
 The core of this project is based on the following modulation equation:
@@ -41,21 +114,6 @@ s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)
 - **🎛️ Filter Type**: Butterworth Low-Pass Filter
 - **📐 Carrier Types**: Cosine and Sine waves
 - **🔄 Processing**: Real-time signal visualization and analysis
-
-
-**System Components:**
-- **🎤 Input Stage**: Three speech signals ready for modulation
-- **📡 Modulation Stage**: Signals multiplied with carrier waves
-- **➕ Combiner**: All modulated signals summed to create s(t)
-- **📶 Transmission**: Combined signal represents transmitted data
-- **🔍 Demodulation Stage**: Signal recovery using coherent detection
-- **🔽 Low-Pass Filters (L.P.F)**: Remove high-frequency components
-- **🎵 Output Stage**: Recovered speech signals
-
-### 🎛️ Demodulation Variations
-- **Standard**: Perfect carrier synchronization
-- **Phase-shifted**: Carriers with 10°, 30°, 90° phase offsets
-- **Frequency-shifted**: Carriers with 2 Hz, 10 Hz frequency offsets
 
 ## Project Structure
 ```
