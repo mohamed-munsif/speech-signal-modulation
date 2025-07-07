@@ -63,9 +63,28 @@ This project demonstrates speech signal modulation and demodulation techniques u
   - `Out_X_phase_Y.wav`: Phase-shifted demodulated signals
   - `Out_X_shift_Y.wav`: Frequency-shifted demodulated signals
 
+## Mathematical Model
+The modulated signal is generated using the following equation:
+
+```
+s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)
+```
+
+Where:
+- `s(t)` is the composite modulated signal
+- `x₁(t)`, `x₂(t)`, `x₃(t)` are the input speech signals
+- `ω₁`, `ω₂` are the carrier frequencies
+- The system uses both cosine and sine carriers for quadrature modulation
+
+## System Block Diagram
+The project implements a modulation-demodulation system with:
+- **Modulation Stage**: Three speech signals are modulated with carrier waves (cos(ω₁t), cos(ω₂t), sin(ω₂t))
+- **Transmission**: Combined signal s(t) represents the transmitted signal
+- **Demodulation Stage**: Signal recovery using coherent detection with low-pass filtering (L.P.F)
+
 ## Technical Details
 - **Sampling Frequency**: 250,000 Hz
-- **Modulation Type**: Amplitude Modulation (AM)
+- **Modulation Type**: Amplitude Modulation (AM) with Quadrature components
 - **Carrier Frequencies**: Various (configurable in notebook)
 - **Filter Type**: Butterworth lowpass filter for demodulation
 
