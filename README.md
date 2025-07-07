@@ -188,9 +188,6 @@ s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)
 ### Installation
 All dependencies are listed in `requirements.txt` for easy installation.
 
-## 📄 License
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 🤝 Contributing
 Feel free to submit issues and enhancement requests!
 
