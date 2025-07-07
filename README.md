@@ -18,6 +18,45 @@ This project demonstrates **speech signal modulation and demodulation techniques
 5. **Demodulation**: Recovers original signals with various carrier configurations
 6. **Output**: Generates processed audio files for analysis
 
+## 🔧 System Architecture
+![Block Diagram](images/Block%20diagram.png)
+
+## 📐 Mathematical Model
+The core of this project is based on the following modulation equation:
+
+```
+s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)
+```
+
+**Where:**
+- `s(t)` → Composite modulated signal (transmitted)
+- `x₁(t), x₂(t), x₃(t)` → Input speech signals (ziad.wav, esoo.wav, mohey.wav)
+- `ω₁, ω₂` → Carrier frequencies
+- `cos(ω₁t), cos(ω₂t)` → Cosine carriers for signals 1 and 2
+- `sin(ω₂t)` → Sine carrier for signal 3 (quadrature component)
+
+## ⚙️ Technical Specifications
+- **📡 Modulation**: Amplitude Modulation (AM) with Quadrature Components
+- **🔊 Sampling Rate**: 250,000 Hz
+- **🎛️ Filter Type**: Butterworth Low-Pass Filter
+- **📐 Carrier Types**: Cosine and Sine waves
+- **🔄 Processing**: Real-time signal visualization and analysis
+
+
+**System Components:**
+- **🎤 Input Stage**: Three speech signals ready for modulation
+- **📡 Modulation Stage**: Signals multiplied with carrier waves
+- **➕ Combiner**: All modulated signals summed to create s(t)
+- **📶 Transmission**: Combined signal represents transmitted data
+- **🔍 Demodulation Stage**: Signal recovery using coherent detection
+- **🔽 Low-Pass Filters (L.P.F)**: Remove high-frequency components
+- **🎵 Output Stage**: Recovered speech signals
+
+### 🎛️ Demodulation Variations
+- **Standard**: Perfect carrier synchronization
+- **Phase-shifted**: Carriers with 10°, 30°, 90° phase offsets
+- **Frequency-shifted**: Carriers with 2 Hz, 10 Hz frequency offsets
+
 ## Project Structure
 ```
 ├── project.ipynb          # Main Jupyter notebook
@@ -75,44 +114,6 @@ This project demonstrates **speech signal modulation and demodulation techniques
 - **`Out_X_shift_Y.wav`** → Frequency-shifted demodulated signals (Y = 2Hz, 10Hz)
 
 *Where X = 1, 2, 3 corresponding to the three input signals*
-
-## ⚙️ Technical Specifications
-- **📡 Modulation**: Amplitude Modulation (AM) with Quadrature Components
-- **🔊 Sampling Rate**: 250,000 Hz
-- **🎛️ Filter Type**: Butterworth Low-Pass Filter
-- **📐 Carrier Types**: Cosine and Sine waves
-- **🔄 Processing**: Real-time signal visualization and analysis
-
-## 📐 Mathematical Model
-The core of this project is based on the following modulation equation:
-
-```
-s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)
-```
-
-**Where:**
-- `s(t)` → Composite modulated signal (transmitted)
-- `x₁(t), x₂(t), x₃(t)` → Input speech signals (ziad.wav, esoo.wav, mohey.wav)
-- `ω₁, ω₂` → Carrier frequencies
-- `cos(ω₁t), cos(ω₂t)` → Cosine carriers for signals 1 and 2
-- `sin(ω₂t)` → Sine carrier for signal 3 (quadrature component)
-
-## 🔧 System Architecture
-![Block Diagram](images/Block%20diagram.png)
-
-**System Components:**
-- **🎤 Input Stage**: Three speech signals ready for modulation
-- **📡 Modulation Stage**: Signals multiplied with carrier waves
-- **➕ Combiner**: All modulated signals summed to create s(t)
-- **📶 Transmission**: Combined signal represents transmitted data
-- **🔍 Demodulation Stage**: Signal recovery using coherent detection
-- **🔽 Low-Pass Filters (L.P.F)**: Remove high-frequency components
-- **🎵 Output Stage**: Recovered speech signals
-
-### 🎛️ Demodulation Variations
-- **Standard**: Perfect carrier synchronization
-- **Phase-shifted**: Carriers with 10°, 30°, 90° phase offsets
-- **Frequency-shifted**: Carriers with 2 Hz, 10 Hz frequency offsets
 
 ## 🛠️ Dependencies & Tools
 
