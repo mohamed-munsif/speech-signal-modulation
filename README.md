@@ -1,17 +1,22 @@
 # Speech Signal Modulation and Demodulation Project
 
-## Overview
-This project demonstrates speech signal modulation and demodulation techniques using Python. The notebook reads three audio files, resamples them to a common sampling frequency (250,000 Hz), and processes them so they all have the same length. The signals are then modulated with carrier signals and later demodulated using standard, phase-shifted, and frequency-shifted carriers.
+## 📡 Overview
+This project demonstrates **speech signal modulation and demodulation techniques** using Python. It implements a complete communication system that processes three audio files, modulates them using different carrier frequencies, transmits the combined signal, and then demodulates to recover the original signals.
 
-## Features
-- Audio file processing and resampling
-- Signal modulation with carrier waves
-- Demodulation with various carrier configurations:
-  - Standard carrier
-  - Phase-shifted carriers (10°, 30°, 90°)
-  - Frequency-shifted carriers (2 Hz, 10 Hz)
-- Signal visualization and analysis
-- Audio output generation
+### 🎯 Key Features
+- 🎵 **Audio Processing**: Resampling and preprocessing of speech signals
+- 📶 **Signal Modulation**: Amplitude modulation with quadrature components
+- 🔄 **Multiple Demodulation**: Standard, phase-shifted, and frequency-shifted recovery
+- 📊 **Visualization**: Complete signal analysis and plotting
+- 💾 **Audio Generation**: Output of processed audio files
+
+### 🚀 What This Project Does
+1. **Input**: Reads three speech audio files (`.wav` format)
+2. **Processing**: Resamples all signals to 250,000 Hz and equalizes lengths
+3. **Modulation**: Combines signals using the mathematical model below
+4. **Transmission**: Simulates transmission of the modulated signal
+5. **Demodulation**: Recovers original signals with various carrier configurations
+6. **Output**: Generates processed audio files for analysis
 
 ## Project Structure
 ```
@@ -33,75 +38,100 @@ This project demonstrates speech signal modulation and demodulation techniques u
 └── requirements.txt       # Python dependencies
 ```
 
-## Requirements
-- Python 3.7+
-- See `requirements.txt` for detailed dependencies
+## 🚀 Quick Start
 
-## Installation
-1. Clone this repository:
+### Prerequisites
+- **Python 3.7+**
+- **Jupyter Notebook** or **JupyterLab**
+
+### 📥 Installation
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/speech-signal-modulation.git
+   git clone https://github.com/mohamed-munsif/speech-signal-modulation.git
    cd speech-signal-modulation
    ```
 
-2. Install required packages:
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-## Usage
-1. Place your audio files (.wav format) in the `signals/` folder
-2. Open `project.ipynb` in Jupyter Notebook or JupyterLab
-3. Run all cells to process the signals
-4. Check the `output_signals/` folder for generated files
+### 🎮 Usage
+1. **Prepare Input**: Place your `.wav` audio files in the `signals/` folder
+2. **Run Analysis**: Open `project.ipynb` and execute all cells
+3. **View Results**: Check `output_signals/` for generated files
+4. **Analyze**: Review plots and audio outputs
 
-## Input Files
-- **signals/**: Place your input .wav files here
-  - The notebook currently processes three files: `ziad.wav`, `esoo.wav`, `mohey.wav`
+## 📊 Input & Output Files
 
-## Output Files
-- **output_signals/**: Contains all demodulated .wav files
-  - `Out_X.wav`: Standard demodulated signals
-  - `Out_X_phase_Y.wav`: Phase-shifted demodulated signals
-  - `Out_X_shift_Y.wav`: Frequency-shifted demodulated signals
+### 📥 Input Files (`signals/` folder)
+- **`ziad.wav`** → Speech signal 1 (modulated with cos(ω₁t))
+- **`esoo.wav`** → Speech signal 2 (modulated with cos(ω₂t))  
+- **`mohey.wav`** → Speech signal 3 (modulated with sin(ω₂t))
 
-## Mathematical Model
-The modulated signal is generated using the following equation:
+### 📤 Output Files (`output_signals/` folder)
+- **`Out_X.wav`** → Standard demodulated signals
+- **`Out_X_phase_Y.wav`** → Phase-shifted demodulated signals (Y = 10°, 30°, 90°)
+- **`Out_X_shift_Y.wav`** → Frequency-shifted demodulated signals (Y = 2Hz, 10Hz)
+
+*Where X = 1, 2, 3 corresponding to the three input signals*
+
+## ⚙️ Technical Specifications
+- **📡 Modulation**: Amplitude Modulation (AM) with Quadrature Components
+- **🔊 Sampling Rate**: 250,000 Hz
+- **🎛️ Filter Type**: Butterworth Low-Pass Filter
+- **📐 Carrier Types**: Cosine and Sine waves
+- **🔄 Processing**: Real-time signal visualization and analysis
+
+## 📐 Mathematical Model
+The core of this project is based on the following modulation equation:
 
 ```
 s(t) = x₁(t)cos(ω₁t) + x₂(t)cos(ω₂t) + x₃(t)sin(ω₂t)
 ```
 
-Where:
-- `s(t)` is the composite modulated signal
-- `x₁(t)`, `x₂(t)`, `x₃(t)` are the input speech signals
-- `ω₁`, `ω₂` are the carrier frequencies
-- The system uses both cosine and sine carriers for quadrature modulation
+**Where:**
+- `s(t)` → Composite modulated signal (transmitted)
+- `x₁(t), x₂(t), x₃(t)` → Input speech signals (ziad.wav, esoo.wav, mohey.wav)
+- `ω₁, ω₂` → Carrier frequencies
+- `cos(ω₁t), cos(ω₂t)` → Cosine carriers for signals 1 and 2
+- `sin(ω₂t)` → Sine carrier for signal 3 (quadrature component)
 
-## System Block Diagram
+## 🔧 System Architecture
 ![Block Diagram](images/Block%20diagram.png)
 
-The project implements a modulation-demodulation system with:
-- **Modulation Stage**: Three speech signals are modulated with carrier waves (cos(ω₁t), cos(ω₂t), sin(ω₂t))
-- **Transmission**: Combined signal s(t) represents the transmitted signal
-- **Demodulation Stage**: Signal recovery using coherent detection with low-pass filtering (L.P.F)
+**System Components:**
+- **🎤 Input Stage**: Three speech signals ready for modulation
+- **📡 Modulation Stage**: Signals multiplied with carrier waves
+- **➕ Combiner**: All modulated signals summed to create s(t)
+- **📶 Transmission**: Combined signal represents transmitted data
+- **🔍 Demodulation Stage**: Signal recovery using coherent detection
+- **🔽 Low-Pass Filters (L.P.F)**: Remove high-frequency components
+- **🎵 Output Stage**: Recovered speech signals
 
-## Technical Details
-- **Sampling Frequency**: 250,000 Hz
-- **Modulation Type**: Amplitude Modulation (AM) with Quadrature components
-- **Carrier Frequencies**: Various (configurable in notebook)
-- **Filter Type**: Butterworth lowpass filter for demodulation
+### 🎛️ Demodulation Variations
+- **Standard**: Perfect carrier synchronization
+- **Phase-shifted**: Carriers with 10°, 30°, 90° phase offsets
+- **Frequency-shifted**: Carriers with 2 Hz, 10 Hz frequency offsets
 
-## Dependencies
-- numpy: Numerical computations
-- scipy: Signal processing
-- librosa: Audio processing
-- soundfile: Audio file I/O
-- matplotlib: Plotting and visualization
-- ipython: Interactive Python environment
+## 🛠️ Dependencies & Tools
 
-## License
+### Core Libraries
+- **`numpy`** → Numerical computations and array operations
+- **`scipy`** → Signal processing and filtering
+- **`librosa`** → Audio processing and resampling
+- **`soundfile`** → Audio file I/O operations
+- **`matplotlib`** → Signal plotting and visualization
+- **`ipython`** → Interactive Python environment
+
+### Installation
+All dependencies are listed in `requirements.txt` for easy installation.
+
+## 📄 License
 This project is open source and available under the [MIT License](LICENSE).
 
-## Contributing
+## 🤝 Contributing
 Feel free to submit issues and enhancement requests!
+
+### 📞 Contact
+For questions about this telecommunication project, feel free to reach out!
