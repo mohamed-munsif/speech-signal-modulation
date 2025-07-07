@@ -28,6 +28,8 @@ This project demonstrates speech signal modulation and demodulation techniques u
 │   ├── Out_1_shift_2.wav
 │   ├── Out_1_shift_10.wav
 │   └── ... (similar files for signals 2 and 3)
+├── images/                # Documentation images
+│   └── Block diagram.png
 └── requirements.txt       # Python dependencies
 ```
 
@@ -77,6 +79,8 @@ Where:
 - The system uses both cosine and sine carriers for quadrature modulation
 
 ## System Block Diagram
+![Block Diagram](images/Block%20diagram.png)
+
 The project implements a modulation-demodulation system with:
 - **Modulation Stage**: Three speech signals are modulated with carrier waves (cos(ω₁t), cos(ω₂t), sin(ω₂t))
 - **Transmission**: Combined signal s(t) represents the transmitted signal
