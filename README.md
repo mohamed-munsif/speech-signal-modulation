@@ -12,6 +12,8 @@
 
 *A complete Python-based communication system demonstrating amplitude modulation, quadrature components, and signal recovery techniques*
 
+**Project Partner:** [Inshaf](https://github.com/MoInshafAR)
+
 </div>
 
 ---
@@ -191,11 +193,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 Feel free to submit issues and enhancement requests!
-
-## 👥 Collaborators
-This project was developed in collaboration with:
-
-- **[Inshaf](https://github.com/MoInshafAR)**
 
 ### 📞 Contact
 For questions about this telecommunication project, feel free to reach out!
